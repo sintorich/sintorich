@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    welcome to aderire dashboard 2024 dashboard<a href="{% url 'logout' %}">   logout </a>
+
+    <hi> list of all users </h1>
+
+        <table style="border:2px.red solid; width: 800px">
+            <tr style="border:2px red solid">
+                <th style="border: 2px red solid"> ID Number</th>
+                <th style="border: 2px red solid"> Username</th>
+                <th style="border: 2px red solid"> Email</th>
+                <th style="border: 2px red solid"> Status</th>
+                <th style="border: 2px red solid"> Action</th>
+
+            </tr>
+
+            {% for user in users %}
+            <tr style ="border: 2px red solid">
+                <td style="border: 1px gray solid"> {{user.id}}</td>
+                <td style="border: 1px gray solid"> {{user.username}}</td>
+                <td style="border: 1px gray solid"> {{user.email}}</td>
+
+                {% if user.is_supeeruser %}
+
+                <td style="border: 1px gray solid"> superuser </td>
+
+                {% else %}
+                <td style="border: 1px gray solid"> staff </td>
+                {% endif %}
+
+                <td> <a href="{% url 'delete_user' user.id %}">delete User </a></td>
+                      
+                
+
+
+
+            </tr>
+
+
+
+                {%endfor%}
+
+                
+
+
+                
+
+            
+            
+
+
+
+
+
+
+                    
+                      
+                
+    
+</body>
+</html>
